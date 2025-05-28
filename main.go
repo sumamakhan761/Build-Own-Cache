@@ -6,7 +6,6 @@ import (
 	"log"
 	"log/slog"
 	"net"
-
 	"github.com/tidwall/resp"
 )
 
@@ -29,7 +28,6 @@ type Server struct {
 	delPeerCh chan *Peer
 	quitCh    chan struct{}
 	msgCh     chan Message
-
 	kv *KV
 }
 
@@ -55,11 +53,8 @@ func (s *Server) Start() error {
 		return err
 	}
 	s.ln = ln
-
 	go s.loop()
-
 	slog.Info("goredis server running", "listenAddr", s.ListenAddr)
-
 	return s.acceptLoop()
 }
 
