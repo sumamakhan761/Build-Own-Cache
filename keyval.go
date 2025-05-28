@@ -3,7 +3,9 @@ package main
 import "sync"
 
 type KV struct {
-	mu   sync.RWMutex
+	mu   sync.RWMutex //  is a read-write mutex, a type of lock that 
+	// allows multiple goroutines to hold the lock for reading (RLock) 
+	// simultaneously, but only one goroutine to hold the lock for writing (Lock)
 	data map[string][]byte
 }
 
