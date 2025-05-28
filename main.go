@@ -54,7 +54,7 @@ func (s *Server) Start() error {
 	}
 	s.ln = ln
 	go s.loop()
-	slog.Info("goredis server running", "listenAddr", s.ListenAddr)
+	slog.Info("cache server running", "listenAddr", s.ListenAddr)
 	return s.acceptLoop()
 }
 
@@ -136,7 +136,7 @@ func (s *Server) handleConn(conn net.Conn) {
 }
 
 func main() {
-	listenAddr := flag.String("listenAddr", defaultListenAddr, "listen address of the goredis server")
+	listenAddr := flag.String("listenAddr", defaultListenAddr, "listen address of the cache server")
 	flag.Parse()
 	server := NewServer(Config{
 		ListenAddr: *listenAddr,
